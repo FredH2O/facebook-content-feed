@@ -10,56 +10,62 @@ import {
   Menu,
   Search,
 } from "lucide-react";
+import facebookUser from "../images/facebookUser.png";
+const IconArray = [House, TvMinimalPlay, Store, Users, Gamepad2];
+const UserIconArray = [Menu, MessageCircleMore, Bell];
 
 const Header = () => {
   return (
-    <header>
-      <nav className="flex justify-between bg-zinc-800 p-1">
-        <ul className="flex justify-start items-center border-2 w-full max-w-xs">
+    <header className="bg-zinc-800 p-2 shadow-md w-full max-w-full">
+      <nav className="flex justify-between items-center">
+        {/* Left Section */}
+        <ul className="flex items-center gap-x-3">
           <li>
             <Facebook
-              className="text-white rounded-2xl bg-blue-400 p-1 mr-2"
-              width={32}
-              height={32}
+              className="text-white rounded-3xl bg-blue-500 p-1"
+              width={40}
+              height={40}
             />
           </li>
           <li className="relative">
-            <Search className="absolute top-1 left-2 text-zinc-700" />
+            <Search className="absolute top-3 left-3 text-zinc-400" size={18} />
             <input
               type="text"
-              className="rounded-2xl p-1 text-center bg-zinc-500 text-white w-full"
-              placeholder={`Search Facebook`}
+              className="bg-zinc-700 text-white rounded-full pl-8 pr-4 py-2 w-40 sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Search Facebook"
             />
           </li>
         </ul>
-        <ul className="flex text-zinc-400 items-center justify-center max-w-2xl w-full">
-          <li className="hover:bg-zinc-700 w-full rounded-md p-3 flex justify-center cursor-pointer">
-            <House />
-          </li>
-          <li className="hover:bg-zinc-700 w-full rounded-md p-3  flex justify-center cursor-pointer">
-            <TvMinimalPlay />
-          </li>
-          <li className="hover:bg-zinc-700 w-full rounded-md p-3  flex justify-center cursor-pointer">
-            <Store />
-          </li>
-          <li className="hover:bg-zinc-700 w-full rounded-md p-3  flex justify-center cursor-pointer">
-            <Users />
-          </li>
-          <li className="hover:bg-zinc-700 w-full rounded-md p-3  flex justify-center cursor-pointer">
-            <Gamepad2 />
-          </li>
+
+        {/* Center Section */}
+        <ul className="lg:flex text-zinc-400 space-x-6 md:max-w-md xl:max-w-xl hidden">
+          {IconArray.map((Icon, index) => (
+            <li
+              key={index}
+              className="hover:bg-zinc-700 w-32 p-3 rounded-md flex justify-center cursor-pointer transition-colors duration-200"
+            >
+              <Icon size={24} />
+            </li>
+          ))}
         </ul>
-        <ul className="flex">
-          <li>
-            <Menu />
+
+        {/* Right Section */}
+        <ul className="flex items-center text-zinc-400 space-x-4">
+          {UserIconArray.map((Icon, index) => (
+            <li
+              key={index}
+              className="hover:bg-zinc-700 p-2 rounded-full cursor-pointer transition-colors duration-200"
+            >
+              <Icon size={24} />
+            </li>
+          ))}
+          <li className="text-white p-1 rounded-2xl h-full font-semibold cursor-pointer hover:bg-zinc-500">
+            <img
+              src={facebookUser}
+              alt="Facebook User Image"
+              className="w-10 rounded-2xl"
+            />
           </li>
-          <li>
-            <MessageCircleMore />
-          </li>
-          <li>
-            <Bell />
-          </li>
-          <li>account</li>
         </ul>
       </nav>
     </header>
