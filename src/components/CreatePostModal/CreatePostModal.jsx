@@ -11,7 +11,8 @@ import {
   MicVocal,
   CirclePower,
 } from "lucide-react";
-import User from "./User";
+import User from "../User";
+import TextAreaExpand from "./TextAreaExpand";
 
 const AddToPost = [Image, Video, MapPin, Laugh, ImagePlay, Ellipsis];
 
@@ -21,7 +22,10 @@ const CreatePostModal = () => {
       {/* main header */}
       <div className="relative flex justify-center items-center w-full h-12 border-b border-zinc-600">
         <h3 className="text-center font-bold text-xl">Create Post</h3>
-        <button className="absolute top-2 right-2 bg-zinc-600 hover:bg-zinc-500 cursor-pointer p-1 rounded-full">
+        <button
+          aria-label="Close"
+          className="absolute top-2 right-2 bg-zinc-600 hover:bg-zinc-500 cursor-pointer p-1 rounded-full"
+        >
           <X />
         </button>
       </div>
@@ -44,18 +48,14 @@ const CreatePostModal = () => {
 
         {/* message and customization */}
         <div className="py-2">
-          <input
-            type="text"
-            placeholder="What's on your mind ?"
-            className="w-full text-2xl placeholder:text-zinc-400"
-          />
+          <TextAreaExpand />
           <div className="grid grid-cols-2 w-full py-2">
             <Palette size={24} className="justify-self-start text-purple-500" />
             <SmilePlus size={24} className="justify-self-end text-amber-400" />
           </div>
         </div>
         {/* add to your post and icons*/}
-        <div className="grid grid-cols-2 border-1 rounded-lg border-zinc-600 px-3 py-3">
+        <div className="grid grid-cols-2 border rounded-lg border-zinc-600 px-3 py-3">
           <p className="font-semibold">Add to your post</p>
           <div className="flex flex-row gap-4">
             {AddToPost.map((Icon, index) => (
@@ -89,8 +89,8 @@ const CreatePostModal = () => {
               <MicVocal size={24} />
             </div>
 
-            <div className="flex flex-col">
-              <h3 className="font-bold text-xl">Boost post</h3>
+            <div className="flex flex-col items-start justify-center">
+              <h3 className="font-bold text-lg">Boost post</h3>
               <p className="font-light text-sm">
                 You'll choose settings after you click Post.
               </p>
@@ -102,6 +102,9 @@ const CreatePostModal = () => {
             <CirclePower size={24} />
           </div>
         </div>
+        <button className="bg-slate-600 font-semibold w-full rounded-lg p-1.5 mt-3 hover:bg-blue-500 cursor-pointer">
+          Post
+        </button>
       </div>
     </div>
   );

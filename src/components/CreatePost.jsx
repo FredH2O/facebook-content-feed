@@ -1,7 +1,7 @@
 import { Video, Image, Film } from "lucide-react";
 import User from "./User";
 import { useState } from "react";
-import CreatePostModal from "./CreatePostModal";
+import CreatePostModal from "./CreatePostModal/CreatePostModal.jsx";
 
 const UserStatusIcons = [
   {
