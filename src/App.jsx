@@ -4,9 +4,9 @@ import PostedContent from "./components/PostedContent/PostedContent";
 
 function App() {
   return (
-    <div className="bg-zinc-900 h-screen">
+    <div className="bg-zinc-900">
       <Header />
-      <main className="container m-auto border">
+      <main className="container m-auto">
         <CreatePost />
         <PostedContent />
       </main>

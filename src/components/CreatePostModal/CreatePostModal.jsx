@@ -18,7 +18,7 @@ const AddToPost = [Image, Video, MapPin, Laugh, ImagePlay, Ellipsis];
 
 const CreatePostModal = ({ handleClose }) => {
   return (
-    <div className="fixed border border-white inset-0 flex items-center justify-center z-10">
+    <div className="fixed inset-0 flex items-center justify-center z-10">
       <div className="bg-zinc-800 border border-zinc-500 max-w-lg md:rounded-lg w-full text-white flex flex-col">
         {/* main header */}
         <div className="relative flex justify-center items-center w-full h-12 border-b border-zinc-600">

@@ -7,62 +7,134 @@ import {
   Ellipsis,
   X,
   Earth,
+  Dot,
+  Heart,
+  Laugh,
+  Angry,
+  Cake,
+  Share2,
 } from "lucide-react";
 import User from "../User";
+import coffee from "../../images/coffee.png";
 
-const PostedContent = ({ user, message, photo }) => {
+const action = [
+  {
+    icon: <ThumbsUp size={18} />,
+    label: "Like",
+  },
+  {
+    icon: <MessageCircle size={18} />,
+    label: "Comment",
+  },
+  {
+    icon: <Send size={18} />,
+    label: "Send",
+  },
+  {
+    icon: <ExternalLink size={18} />,
+    label: "Share",
+  },
+];
+
+const reactionIcon = [ThumbsUp, Heart, Laugh, Cake, Angry];
+
+const PostedContent = ({ user, message, photo, shares, reaction }) => {
   return (
-    <div className="max-w-xl justify-self-center text-zinc-200 mt-5">
+    <div className="max-w-xl justify-self-center text-zinc-200 mt-5 bg-zinc-800 rounded-lg">
       {/* user's details here */}
-      <div className="grid grid-cols-[9fr_1fr] w-full items-center place-items-center border border-yellow-500">
-        <div className="flex flex-row w-full border border-red-500 justify-self-start">
-          <div className="flex items-center px-2">
+      <div className="grid grid-cols-[9fr_1fr] w-full items-center p-2 place-items-center">
+        <div className="flex flex-row w-full justify-self-start">
+          <div className="flex items-center hover:bg-zinc-700 rounded-full p-1 cursor-pointer">
             <User className="w-10 rounded-full" />
           </div>
 
-          <div className="flex flex-col">
-            <div className="flex gap-1">
-              <h3 className="font-bold">{user}Frederico Huertas</h3>
-              <BadgeCheck className="text-green-500 w-4" />
+          <div className="flex flex-col ml-2">
+            <div className="flex flex-row justify-center items-center">
+              <h3 className="font-bold text-zinc-200 cursor-pointer hover:underline">
+                {user}Frederico Huertas
+              </h3>
+              <BadgeCheck className="text-green-500 w-4 ml-1" />
+              <Dot size={10} />
               <p className="font-semibold text-blue-500 cursor-pointer hover:underline">
                 Follow
               </p>
             </div>
 
-            <div className="flex justify-start items-center gap-1">
-              <p className="text-sm">6h</p>
+            <div className="flex justify-start items-center">
+              <p className="text-sm cursor-pointer hover:underline">6h</p>
+              <Dot size={10} />
               <Earth className="w-3" />
             </div>
           </div>
         </div>
 
-        <div className="flex flex-row justify-self-end border border-purple-500">
-          <Ellipsis />
-          <X />
+        <div className="flex flex-row justify-self-end gap-3">
+          <div className="hover:bg-zinc-700 rounded-full p-2 cursor-pointer">
+            <Ellipsis />
+          </div>
+          <div className="hover:bg-zinc-700 rounded-full p-2 cursor-pointer">
+            <X />
+          </div>
         </div>
       </div>
-      <p>
-        {message} Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-        vitae deserunt magni rerum quo sapiente incidunt, assumenda minus
-        mollitia accusantium quos repellat debitis placeat quidem itaque minima
-        dolores et hic.
-      </p>
-      <img src={photo} alt={photo} />
-      <div>{/* emoji , comments , shares */}</div>
+
       <div>
-        <ul className="flex flex-row">
-          <li>
-            <ThumbsUp /> Like
-          </li>
-          <li>
-            <MessageCircle /> Comment
-          </li>
-          <li>
-            <Send /> Send
-          </li>
-          <li>
-            <ExternalLink /> Share
-          </li>
+        <p className="p-2">
+          {message} Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+          vitae deserunt magni rerum quo sapiente incidunt, assumenda minus
+          mollitia accusantium quos repellat debitis placeat quidem itaque
+          minima dolores et hic.
+        </p>
+        <img src={coffee} alt={coffee} />
+      </div>
+
+      {/* emoji , comments , shares */}
+      <div className="grid grid-cols-2 border-b-1 border-zinc-500 mx-3 my-1 px-1 py-2">
+        <div className="flex flex-row -space-x-1.5">
+          {reactionIcon.map((Icon, index) => (
+            <div
+              className={`text-white ${
+                Icon === ThumbsUp
+                  ? "bg-blue-500"
+                  : Icon === Heart
+                  ? "bg-pink-500"
+                  : Icon === Laugh
+                  ? "bg-green-500"
+                  : Icon === Cake
+                  ? "bg-yellow-500"
+                  : Icon === Angry
+                  ? "bg-red-500"
+                  : null
+              }  border rounded-full p-1`}
+            >
+              <Icon key={index} size={15} className="hover:cursor-pointer" />
+            </div>
+          ))}
+
+          {/* reaction */}
+          <div className="pl-3">
+            <p>{reaction}1M</p>
+          </div>
+        </div>
+
+        {/* shares */}
+        <div className="justify-self-end">
+          <p>{shares}</p>
+          <Share2 />
+        </div>
+      </div>
+
+      <div className="">
+        <ul className="flex flex-row justify-between px-3">
+          {action.map((item, index) => (
+            <li
+              onClick={() => console.log("clicked")}
+              key={index}
+              className="flex flex-row gap-2 hover:bg-zinc-700 rounded justify-center items-center cursor-pointer p-1 w-full"
+            >
+              {item.icon} {item.label}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
