@@ -37,6 +37,8 @@ const action = [
 ];
 
 const reactionIcon = [ThumbsUp, Heart, Laugh, Cake, Angry];
+// const randomReaction = Math.floor(Math.random() * reactionIcon.length);
+// console.log(randomReaction);
 
 const PostedContent = ({
   name,
@@ -49,7 +51,7 @@ const PostedContent = ({
   official,
 }) => {
   return (
-    <div className="max-w-xl justify-self-center text-zinc-200 mt-5 bg-zinc-800 rounded-lg">
+    <div className="max-w-xl justify-self-center text-zinc-200 my-5 bg-zinc-800 rounded-lg">
       {/* user's details here */}
       <div className="grid grid-cols-[9fr_1fr] w-full items-center p-2 place-items-center">
         <div className="flex flex-row w-full justify-self-start">
@@ -101,6 +103,7 @@ const PostedContent = ({
         <div className="flex flex-row -space-x-1.5">
           {reactionIcon.map((Icon, index) => (
             <div
+              key={index}
               className={`text-white ${
                 Icon === ThumbsUp
                   ? "bg-blue-500"
@@ -115,7 +118,7 @@ const PostedContent = ({
                   : null
               }  border rounded-full p-1`}
             >
-              <Icon key={index} size={15} className="hover:cursor-pointer" />
+              <Icon size={15} className="hover:cursor-pointer" />
             </div>
           ))}
 
@@ -126,14 +129,17 @@ const PostedContent = ({
         </div>
 
         {/* shares */}
-        <div className="justify-self-end">
+        <div
+          className="justify-self-end flex flex-row gap-1 justify-center items-center"
+          title="Shares"
+        >
           <p>{shares}</p>
-          <Share2 />
+          <Share2 size={18} />
         </div>
       </div>
 
       <div className="">
-        <ul className="flex flex-row justify-between px-3">
+        <ul className="flex flex-row justify-between px-3 py-2">
           {action.map((item, index) => (
             <li
               onClick={() => console.log("clicked")}
