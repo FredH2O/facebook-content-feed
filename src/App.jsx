@@ -1,6 +1,6 @@
+import ContentBody from "./components/ContentBody.jsx";
 import CreatePost from "./components/CreatePost";
 import Header from "./components/Header";
-import PostedContent from "./components/PostedContent/PostedContent";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Header />
       <main className="container m-auto">
         <CreatePost />
-        <PostedContent />
+        <ContentBody />
       </main>
     </div>
   );

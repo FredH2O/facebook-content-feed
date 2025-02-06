@@ -38,7 +38,16 @@ const action = [
 
 const reactionIcon = [ThumbsUp, Heart, Laugh, Cake, Angry];
 
-const PostedContent = ({ user, message, photo, shares, reaction }) => {
+const PostedContent = ({
+  name,
+  message,
+  img,
+  imgTitle,
+  shares,
+  reaction,
+  followed,
+  official,
+}) => {
   return (
     <div className="max-w-xl justify-self-center text-zinc-200 mt-5 bg-zinc-800 rounded-lg">
       {/* user's details here */}
@@ -51,19 +60,23 @@ const PostedContent = ({ user, message, photo, shares, reaction }) => {
           <div className="flex flex-col ml-2">
             <div className="flex flex-row justify-center items-center">
               <h3 className="font-bold text-zinc-200 cursor-pointer hover:underline">
-                {user}Frederico Huertas
+                {name}
               </h3>
-              <BadgeCheck className="text-green-500 w-4 ml-1" />
+
+              {official && <BadgeCheck className="text-green-500 w-4 ml-1" />}
               <Dot size={10} />
-              <p className="font-semibold text-blue-500 cursor-pointer hover:underline">
-                Follow
-              </p>
+
+              {followed && (
+                <p className="font-semibold text-blue-500 cursor-pointer hover:underline">
+                  Follow
+                </p>
+              )}
             </div>
 
             <div className="flex justify-start items-center">
               <p className="text-sm cursor-pointer hover:underline">6h</p>
               <Dot size={10} />
-              <Earth className="w-3" />
+              <Earth className="w-3" title="Test" />
             </div>
           </div>
         </div>
@@ -79,13 +92,8 @@ const PostedContent = ({ user, message, photo, shares, reaction }) => {
       </div>
 
       <div>
-        <p className="p-2">
-          {message} Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-          vitae deserunt magni rerum quo sapiente incidunt, assumenda minus
-          mollitia accusantium quos repellat debitis placeat quidem itaque
-          minima dolores et hic.
-        </p>
-        <img src={coffee} alt={coffee} />
+        <p className="p-2">{message}</p>
+        <img src={img} alt={imgTitle} />
       </div>
 
       {/* emoji , comments , shares */}
@@ -113,7 +121,7 @@ const PostedContent = ({ user, message, photo, shares, reaction }) => {
 
           {/* reaction */}
           <div className="pl-3">
-            <p>{reaction}1M</p>
+            <p>{reaction}</p>
           </div>
         </div>
 

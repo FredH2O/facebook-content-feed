@@ -1,0 +1,185 @@
+[
+  {
+    "id": 1,
+    "userId": 101,
+    "name": "Café Bianco",
+    "official": true,
+    "time": 3,
+    "followed": true,
+    "message": "Excited to share our new coffee bean from Ghana!",
+    "img": "../images/cafe-bianco-post.png",
+    "imgTitle": "Cafe Bianco",
+    "reaction": 12,
+    "shares": 3,
+    "comments": [
+      {
+        "id": 1,
+        "user": "Jeffrey",
+        "comment": "Can't wait to try em! 💪🏻",
+        "like": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": 102,
+    "name": "House of Plants",
+    "official": false,
+    "time": 9,
+    "followed": true,
+    "message": "Announcing our house plant sale is now on!",
+    "img": "../images/plants-sale.png",
+    "imgTitle": "House of Plants SALE",
+    "reaction": 33,
+    "shares": 12,
+    "comments": [
+      {
+        "id": 1,
+        "user": "LaMiesa",
+        "comment": "Can I use my voucher, I think I still have €29 in it",
+        "like": 0
+      },
+      {
+        "id": 2,
+        "user": "Erick",
+        "comment": "Awesome, can't wait to drop by later!",
+        "like": 1
+      },
+      {
+        "id": 3,
+        "user": "Jessica",
+        "comment": "Aw, I just bought a peace lily yesterday at full price. Can I return it? 🤣",
+        "like": 9
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": 103,
+    "name": "Football News",
+    "official": true,
+    "time": 1,
+    "followed": false,
+    "message": "It's been confirmed that the European Football Championship will be held in Germany!",
+    "img": "../images/euro-football.png",
+    "imgTitle": "Germany Confirmed",
+    "reaction": 52123,
+    "shares": 22,
+    "comments": [
+      {
+        "id": 1,
+        "user": "Ronaldo Jr.",
+        "comment": "Fire 🔥",
+        "like": 1
+      },
+      {
+        "id": 2,
+        "user": "Sophie",
+        "comment": "Germany is going to host the best event ever! 🇩🇪🔥",
+        "like": 54
+      },
+      {
+        "id": 3,
+        "user": "Tom",
+        "comment": "Is it going to be bigger than the 2016 tournament? 🤔",
+        "like": 19
+      },
+      {
+        "id": 4,
+        "user": "Rachel",
+        "comment": "I can't believe it's in Germany again! The atmosphere is amazing there. 🙌",
+        "like": 32
+      },
+      {
+        "id": 5,
+        "user": "Chris",
+        "comment": "Let's goooo! Germany's ready to host, let's see who brings the heat this time! 🔥⚽️",
+        "like": 11
+      },
+      {
+        "id": 6,
+        "user": "Liam",
+        "comment": "Do we know the dates yet? Trying to plan my trip. 🗓️✈️",
+        "like": 7
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userId": 104,
+    "name": "Official K-POP MiraePulse ('공식 미레펄스')",
+    "official": false,
+    "time": 7,
+    "followed": true,
+    "message": "Concert dates are now in progress 📅!",
+    "img": "../images/k-pop.png",
+    "imgTitle": "Official KPOP",
+    "reaction": 399000,
+    "shares": 3200,
+    "comments": [
+      {
+        "id": 1,
+        "user": "Taehyung",
+        "comment": "Nice!",
+        "like": 1
+      },
+      {
+        "id": 2,
+        "user": "Jisoo",
+        "comment": "I can't wait to see you guys perform live! 🌟",
+        "like": 52
+      },
+      {
+        "id": 3,
+        "user": "Minji",
+        "comment": "Where are the first concert dates going to be? 😍",
+        "like": 29
+      },
+      {
+        "id": 4,
+        "user": "Jihoon",
+        "comment": "MiraePulse is going to rock the stage! Can't wait! 🎤🔥",
+        "like": 63
+      },
+      {
+        "id": 5,
+        "user": "Nari",
+        "comment": "Are there going to be virtual tickets for international fans? 🙏",
+        "like": 18
+      },
+      {
+        "id": 6,
+        "user": "Sungmin",
+        "comment": "This is going to be epic!! Do you have a tour playlist out already? 🎶",
+        "like": 25
+      },
+      {
+        "id": 7,
+        "user": "Seojin",
+        "comment": "I’m so excited! Please come to New York! ✈️💖",
+        "like": 47
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "userId": 105,
+    "name": "Jean Claude",
+    "official": false,
+    "time": 1,
+    "followed": true,
+    "message": "Another rainy day ☂️, perfect to stay in!",
+    "img": "../images/rain.png",
+    "imgTitle": "Rainy",
+    "reaction": 2,
+    "shares": 0,
+    "comments": [
+      {
+        "id": 1,
+        "user": "Maria Claude",
+        "comment": "Don't forget my washing hunny! 😣",
+        "like": 1
+      }
+    ]
+  }
+]
