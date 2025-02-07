@@ -1,44 +1,15 @@
 import {
   ThumbsUp,
-  MessageCircle,
-  Send,
-  ExternalLink,
   BadgeCheck,
   Ellipsis,
   X,
   Earth,
   Dot,
-  Heart,
-  Laugh,
-  Angry,
-  Cake,
   Share2,
 } from "lucide-react";
-import User from "../User";
-import coffee from "../../images/coffee.png";
-
-const action = [
-  {
-    icon: <ThumbsUp size={18} />,
-    label: "Like",
-  },
-  {
-    icon: <MessageCircle size={18} />,
-    label: "Comment",
-  },
-  {
-    icon: <Send size={18} />,
-    label: "Send",
-  },
-  {
-    icon: <ExternalLink size={18} />,
-    label: "Share",
-  },
-];
-
-const reactionIcon = [ThumbsUp, Heart, Laugh, Cake, Angry];
-// const randomReaction = Math.floor(Math.random() * reactionIcon.length);
-// console.log(randomReaction);
+import { useState } from "react";
+import { action, reactionIcon, reactionColors } from "./constant";
+import CommentsSection from "./CommentsSection";
 
 const PostedContent = ({
   name,
@@ -50,7 +21,21 @@ const PostedContent = ({
   followed,
   official,
   avatar,
+  comments,
 }) => {
+  const [showComments, setShowComments] = useState(false);
+
+  const handleActionClick = (label) => {
+    const actions = {
+      Comment: () => setShowComments((prev) => !prev),
+      Like: () => console.log("liked pressed"),
+      Send: () => console.log("sent pressed"),
+      Share: () => console.log("share pressed"),
+    };
+
+    actions[label]?.();
+  };
+
   return (
     <div className="max-w-xl justify-self-center text-zinc-200 my-5 bg-zinc-800 rounded-lg">
       {/* user's details here */}
@@ -106,26 +91,19 @@ const PostedContent = ({
       {/* emoji , comments , shares */}
       <div className="grid grid-cols-2 border-b-1 border-zinc-500 mx-3 my-1 px-1 py-2">
         <div className="flex flex-row -space-x-1.5">
-          {reactionIcon.map((Icon, index) => (
-            <div
-              key={index}
-              className={`text-white ${
-                Icon === ThumbsUp
-                  ? "bg-blue-500"
-                  : Icon === Heart
-                  ? "bg-pink-500"
-                  : Icon === Laugh
-                  ? "bg-green-500"
-                  : Icon === Cake
-                  ? "bg-yellow-500"
-                  : Icon === Angry
-                  ? "bg-red-500"
-                  : null
-              }  border rounded-full p-1`}
-            >
-              <Icon size={15} className="hover:cursor-pointer" />
-            </div>
-          ))}
+          {reactionIcon.map((Icon, index) => {
+            const iconName = Icon.name || Icon.displayName;
+            return (
+              <div
+                key={index}
+                className={`text-white ${
+                  reactionColors[iconName] || ""
+                }  border rounded-full p-1`}
+              >
+                <Icon size={15} className="hover:cursor-pointer" />
+              </div>
+            );
+          })}
 
           {/* reaction */}
           <div className="pl-3">
@@ -147,15 +125,16 @@ const PostedContent = ({
         <ul className="flex flex-row justify-between px-3 py-2">
           {action.map((item, index) => (
             <li
-              onClick={() => console.log("clicked")}
+              onClick={() => handleActionClick(item.label)}
               key={index}
               className="flex flex-row gap-2 hover:bg-zinc-700 rounded justify-center items-center cursor-pointer p-1 w-full"
             >
-              {item.icon} {item.label}
+              <item.icon size={18} /> {item.label}
             </li>
           ))}
         </ul>
       </div>
+      {showComments && <CommentsSection comments={comments} />}
     </div>
   );
 };

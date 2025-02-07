@@ -17,6 +17,7 @@ const ContentBody = () => {
           reaction={userId.reaction}
           followed={userId.followed}
           official={userId.official}
+          comments={userId.comments}
         />
       ))}
     </section>
