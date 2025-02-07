@@ -49,6 +49,7 @@ const PostedContent = ({
   reaction,
   followed,
   official,
+  avatar,
 }) => {
   return (
     <div className="max-w-xl justify-self-center text-zinc-200 my-5 bg-zinc-800 rounded-lg">
@@ -56,7 +57,11 @@ const PostedContent = ({
       <div className="grid grid-cols-[9fr_1fr] w-full items-center p-2 place-items-center">
         <div className="flex flex-row w-full justify-self-start">
           <div className="flex items-center hover:bg-zinc-700 rounded-full p-1 cursor-pointer">
-            <User className="w-10 rounded-full" />
+            <img
+              src={avatar}
+              alt="avatar-logo"
+              className="w-12 rounded-full object-cover object-center transition-transform duration-200 hover:scale-110"
+            />
           </div>
 
           <div className="flex flex-col ml-2">

@@ -2,6 +2,7 @@
   {
     "id": 1,
     "userId": 101,
+    "avatar": "../images/avatar-coffee.png",
     "name": "Café Bianco",
     "official": true,
     "time": 3,
@@ -23,6 +24,7 @@
   {
     "id": 2,
     "userId": 102,
+    "avatar": "../images/avatar-plants.png",
     "name": "House of Plants",
     "official": false,
     "time": 9,
@@ -56,6 +58,7 @@
   {
     "id": 3,
     "userId": 103,
+    "avatar": "../images/avatar-football.png",
     "name": "Football News",
     "official": true,
     "time": 1,
@@ -107,8 +110,9 @@
   {
     "id": 4,
     "userId": 104,
-    "name": "Official K-POP MiraePulse ('공식 미레펄스')",
-    "official": false,
+    "avatar": "../images/avatar-kpop.png",
+    "name": "'공식 미레펄스' K-Pop",
+    "official": true,
     "time": 7,
     "followed": true,
     "message": "Concert dates are now in progress 📅!",
@@ -164,6 +168,7 @@
   {
     "id": 5,
     "userId": 105,
+    "avatar": "../images/avatar-jean.png",
     "name": "Jean Claude",
     "official": false,
     "time": 1,

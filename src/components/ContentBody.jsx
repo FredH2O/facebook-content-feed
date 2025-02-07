@@ -7,6 +7,7 @@ const ContentBody = () => {
     <section className="container m-auto">
       {dummyPost.map((userId) => (
         <PostedContent
+          avatar={userId.avatar}
           key={userId.id}
           name={userId.name}
           message={userId.message}
