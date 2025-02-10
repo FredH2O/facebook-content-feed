@@ -26,14 +26,15 @@ const PostedContent = ({
   const [showComments, setShowComments] = useState(false);
 
   const handleActionClick = (label) => {
-    const actions = {
-      Comment: () => setShowComments((prev) => !prev),
-      Like: () => console.log("liked pressed"),
-      Send: () => console.log("sent pressed"),
-      Share: () => console.log("share pressed"),
-    };
-
-    actions[label]?.();
+    if (label === "Comment") {
+      setShowComments((prev) => !prev);
+    } else if (label === "Like") {
+      console.log("liked pressed");
+    } else if (label === "Send") {
+      console.log("sent pressed");
+    } else if (label === "Share") {
+      console.log("share pressed");
+    }
   };
 
   return (
@@ -89,7 +90,7 @@ const PostedContent = ({
       </div>
 
       {/* emoji , comments , shares */}
-      <div className="grid grid-cols-2 border-b-1 border-zinc-500 mx-3 my-1 px-1 py-2">
+      <div className="grid grid-cols-2 mx-3 my-1 px-1 py-2">
         <div className="flex flex-row -space-x-1.5">
           {reactionIcon.map((Icon, index) => {
             const iconName = Icon.name || Icon.displayName;
@@ -121,7 +122,7 @@ const PostedContent = ({
         </div>
       </div>
 
-      <div className="">
+      <div className="border-t border-zinc-500 w-[95%] m-auto">
         <ul className="flex flex-row justify-between px-3 py-2">
           {action.map((item, index) => (
             <li

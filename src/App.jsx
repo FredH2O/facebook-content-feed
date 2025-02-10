@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="bg-zinc-900">
       <Header />
-      <main className="container m-auto">
+      <main className="container m-auto pb-1">
         <CreatePost />
         <ContentBody />
       </main>
