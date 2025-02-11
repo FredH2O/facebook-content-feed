@@ -13,10 +13,38 @@ import {
 } from "lucide-react";
 import User from "../User";
 import TextAreaExpand from "./TextAreaExpand";
+import { useState } from "react";
+import { usePosts } from "../PostContext.jsx";
 
 const AddToPost = [Image, Video, MapPin, Laugh, ImagePlay, Ellipsis];
 
 const CreatePostModal = ({ handleClose }) => {
+  const [message, setMessage] = useState("");
+  const { addNewPost } = usePosts();
+
+  const handlePost = () => {
+    if (message.trim()) {
+      const newPost = {
+        id: Date.now(), // Unique ID for the post
+        userId: 101,
+        avatar: "../images/avatar-1.png",
+        name: "You",
+        official: true,
+        time: new Date().toLocaleTimeString(),
+        followed: true,
+        message: message, // Store the message properly
+        img: "../images/cafe-bianco-post.png",
+        imgTitle: "Cafe Bianco",
+        reaction: 0,
+        shares: 0,
+        comments: [],
+      };
+
+      addNewPost(newPost); // Add the new post to the global context
+      setMessage(""); // Clear the input field
+    }
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-10">
       <div className="bg-zinc-800 border border-zinc-500 max-w-lg md:rounded-lg w-full text-white flex flex-col">
@@ -50,7 +78,11 @@ const CreatePostModal = ({ handleClose }) => {
 
           {/* message and customization */}
           <div className="py-2">
-            <TextAreaExpand />
+            <TextAreaExpand
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+
             <div className="grid grid-cols-2 w-full py-2">
               <div className="rounded-full cursor-pointer hover:bg-zinc-400 p-1 w-8">
                 <Palette
@@ -114,7 +146,15 @@ const CreatePostModal = ({ handleClose }) => {
               <CirclePower size={24} />
             </div>
           </div>
-          <button className="bg-slate-600 font-semibold w-full rounded-lg p-1.5 mt-3 hover:bg-blue-500 cursor-pointer">
+          <button
+            onClick={handlePost}
+            className={`w-full mt-3 p-2 rounded-lg font-semibold ${
+              message.trim()
+                ? "bg-blue-500 hover:bg-blue-600 cursor-pointer"
+                : "bg-slate-600 opacity-50 cursor-not-allowed"
+            }`}
+            disabled={!message.trim()}
+          >
             Post
           </button>
         </div>

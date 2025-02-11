@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./TextAreaScroll.css";
 
-const TextAreaExpand = () => {
+const TextAreaExpand = ({ onChange, value }) => {
   const textareaRef = useRef(null);
   const [rows, setRows] = useState(1);
   const handleInput = () => {
@@ -22,6 +22,8 @@ const TextAreaExpand = () => {
 
   return (
     <textarea
+      value={value}
+      onChange={onChange}
       ref={textareaRef}
       onInput={handleInput}
       rows={rows}

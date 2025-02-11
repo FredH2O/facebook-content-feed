@@ -1,11 +1,13 @@
 import dummyPost from "../data/DummyPost.json";
 import PostedContent from "./PostedContent/PostedContent";
+import { usePosts } from "./PostContext.jsx";
 
 const ContentBody = () => {
+  const { posts } = usePosts();
   console.log(dummyPost);
   return (
     <section className="container m-auto">
-      {dummyPost.map((userId) => (
+      {posts.map((userId) => (
         <PostedContent
           avatar={userId.avatar}
           key={userId.id}
