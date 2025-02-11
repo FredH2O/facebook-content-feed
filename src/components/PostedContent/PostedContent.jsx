@@ -44,7 +44,7 @@ const PostedContent = ({
         <div className="flex flex-row w-full justify-self-start">
           <div className="flex items-center hover:bg-zinc-700 rounded-full p-1 cursor-pointer">
             <img
-              src={avatar}
+              src={`/facebook-content-feed/${avatar}`}
               alt="avatar-logo"
               className="w-12 rounded-full object-cover object-center transition-transform duration-200 hover:scale-110"
             />
