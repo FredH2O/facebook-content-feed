@@ -25,7 +25,7 @@ const CommentsSection = ({ comments = [] }) => {
             <div key={comment.id}>
               <div className="flex flex-row justify-start items-start">
                 <img
-                  src={avatars[randomAvatar]}
+                  src={`/facebook-content-feed/${avatars[randomAvatar]}`}
                   className="w-10 rounded-full"
                   alt="User's Avatar"
                 />

@@ -86,7 +86,7 @@ const PostedContent = ({
 
       <div>
         <p className="p-2">{message}</p>
-        <img src={img} alt={imgTitle} />
+        <img src={`/facebook-content-feed/${img}`} alt={imgTitle} />
       </div>
 
       {/* emoji , comments , shares */}
